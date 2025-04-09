@@ -13,6 +13,9 @@ switch ($page) {
     case 'barmanAccueil':
         require_once('controllers/barmanAccueil.php');
         break;
+    case 'Cuisnier':
+        require_once('controllers/barmanAccueil.php');
+        break;
     // Ajoute d'autres pages
     default:
         echo "<h1>Page non trouvée</h1>";

@@ -7,5 +7,5 @@
 </a>
 
 <a href="index.php?page=page2">
-    <button>Autre page</button>
+    <button>Cuis</button>
 </a>
