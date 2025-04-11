@@ -1,5 +1,4 @@
-<h1>PAGE BARMAN</h1>
-<?php
+<h1>PAGE BARMAN</h1><?php
 
 $response = file_get_contents("http://localhost/Projet_S4/api/get_tables.php");
 $tables = json_decode($response, true);
@@ -10,15 +9,31 @@ if ($tables && is_array($tables)) {
         $id = $table['ID_TABLES'];
         $statut = $table['statut_table'];
 
-        $color = ($statut == "Disponible") ? "gray" : "red";
+        switch ($statut) {
+            case "Disponible":
+                $color = "gray";
+                break;
+            case "Occupée":
+                $color = "red";
+                break;
+            case "Réservée":
+                $color = "green";
+                break;
+            case "A Nettoyer":
+                $color = "orange";
+                break;
+            default:
+                $color = "gray";
+        }
 
-        echo "<button style='padding:10px; background-color:$color; color:white; border:none; '>Table $id</button>";
+        echo "<button style='padding:10px; margin: 10px; background-color:$color; color:white; border:none;'>Table $id</button>";
     }
     echo "</div>";
 } else {
     echo "Erreur lors du chargement des tables.";
 }
 ?>
+
 
 
 

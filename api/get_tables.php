@@ -28,7 +28,6 @@ while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
         'statut_table' => $table->getStatut_table()
     ];
 }
-// ... tout ton code plus haut
 
 header('Content-Type: application/json');
 echo json_encode($tables);
