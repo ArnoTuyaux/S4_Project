@@ -2,6 +2,11 @@
 <link rel="stylesheet" href="css/nav.css?v=1">
 
 <?php
+
+$response = file_get_contents("http://localhost/S4_Project/api/get_tables.php");
+$tables = json_decode($response, true);
+
+
 if ($tables && is_array($tables)) {
     echo "<div>";
     foreach ($tables as $table) {

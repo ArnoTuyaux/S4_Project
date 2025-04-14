@@ -1,6 +1,12 @@
 <?php
-$type_plat = isset($_GET['type']) ? $_GET['type'] : 'Entree';
-require_once("../../api/get_menu.php");
 
+$type = $_GET['type'] ?? 'Entree';
 
-include("../../views/administration\admin_Carte.php");
+$response = file_get_contents("http://localhost/S4_Project_WebApp/api/get_menu.php?type=" . urlencode($type));
+
+if ($response === false) {
+    die("Erreur lors de l'appel API.");
+}
+
+$plats = json_decode($response, true);
+include("../../views/administration/admin_Carte.php");
