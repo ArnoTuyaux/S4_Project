@@ -10,26 +10,10 @@ exit;*/
 require_once '../class/Database.php';
 require_once '../class/Tables.php';
 
-$db = new Database();
-$conn = $db->getConnection();
-
-$sql = "SELECT t.ID_TABLES, s.statut_table, t.id_secteur
-        FROM tables t
-        JOIN statut_Table s ON t.ID_STATUT_TABLE = s.ID_STATUT_TABLE";
-
-$result = $db->requete($sql);
-
-$tables = [];
-
-while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-    $table = new Tables($row['ID_TABLES'], $row['statut_table'], $row['id_secteur']);
-    $tables[] = [
-        'ID_TABLES' => $table->getID_Table(),
-        'statut_table' => $table->getStatut_table()
-    ];
-}
+$tables = Tables::getAllTables();
+$tableArray = array_map(function($t) {
+    return $t->toArray();
+}, $tables);
 
 header('Content-Type: application/json');
-echo json_encode($tables);
-
-
+echo json_encode($tableArray);
