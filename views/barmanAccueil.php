@@ -3,10 +3,6 @@
 
 <?php
 
-$response = file_get_contents("http://localhost/S4_Project/api/get_tables.php");
-$tables = json_decode($response, true);
-
-
 if ($tables && is_array($tables)) {
     echo "<div>";
     foreach ($tables as $table) {
@@ -38,9 +34,10 @@ if ($tables && is_array($tables)) {
 }
 ?>
 
-<script>
+<!--<script>
     function openReservationModal() {
         // tu peux faire un `fetch()` ou juste afficher un <div> modal
         alert("Ici on ouvrira la modale de réservation !");
     }
 </script>
+-->
