@@ -2,7 +2,7 @@
 
 <?php
 
-$response = file_get_contents("http://localhost/Projet_S4/api/get_tables.php");
+$response = file_get_contents("http://localhost/S4_Project_WebApp/api/get_tables.php");
 $tables = json_decode($response, true);
 
 if ($tables && is_array($tables)) {

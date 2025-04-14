@@ -10,9 +10,13 @@
     </div>
 </nav>
 <?php foreach ($plats as $plat): ?>
-    <div class="dish-item">
-        <span><?= htmlspecialchars($plat['NOM_PLAT']) ?> (<?= htmlspecialchars($plat['TYPE_PLAT']) ?>) - <?= number_format($plat['PRIX'], 2, ',', ' ') ?> €</span>
-        <button class="edit">Modifier</button>
-        <button class="delete">Supprimer</button>
-    </div>
+<div class="dish-item">
+        <span>
+    <?= htmlspecialchars($plat['NOM_PLAT']) ?>
+    (<?= htmlspecialchars($plat['TYPE_PLAT']['TYPE_PLAT']) ?>)
+    - <?= number_format($plat['PRIX'], 2, ',', ' ') ?> €
+</span>
+	<button class="edit">Modifier</button>
+	<button class="delete">Supprimer</button>
+</div>
 <?php endforeach; ?>
