@@ -15,10 +15,10 @@ if ($tables && is_array($tables)) {
             case "Disponible":
                 $color = "gray";
                 break;
-            case "Occupée":
+            case "Occupee":
                 $color = "red";
                 break;
-            case "Réservée":
+            case "Reservee":
                 $color = "green";
                 break;
             case "A Nettoyer":
