@@ -37,4 +37,14 @@ class BoissonTicket
 
         return $result;
     }
+
+    public static function terminerTicket($id_ticket) {
+        $db = new Database();
+        $conn = $db->getConnection();
+        $sql = "UPDATE Ticket SET ticket_en_cours = FALSE WHERE id_ticket = :id_ticket";
+        $stmt = $db->requete($sql, ['id_ticket' => $id_ticket]);
+
+        return $stmt->rowCount() > 0;
+    }
+
 }
