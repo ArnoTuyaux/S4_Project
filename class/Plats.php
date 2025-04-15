@@ -79,12 +79,13 @@ class Plats{
     {
 
         $db = new Database();
-        $conn = $db->getConnection();
         $query = "SELECT p.ID_PLAT, p.NOM_PLAT, p.PRIX, tp.TYPE_PLAT
           FROM PLAT p
           JOIN TYPE_PLATS tp ON p.ID_TYPE_PLATS = tp.ID_TYPE_PLATS
           WHERE p.SUR_LA_CARTE = TRUE AND tp.TYPE_PLAT = '$type'";
+        $conn = $db->getConnection();
         $stmt = $db->requete($query);
+
         if (!$stmt) {
             throw new Exception("Erreur dans la requête SQL");
         }
@@ -95,5 +96,34 @@ class Plats{
 
         return $plats;
     }
+    public static function getPlatById($id) {
+        $db = new Database();
+        $query = "SELECT p.ID_PLAT, p.NOM_PLAT, p.PRIX, tp.TYPE_PLAT
+              FROM PLAT p
+              JOIN TYPE_PLATS tp ON p.ID_TYPE_PLATS = tp.ID_TYPE_PLATS
+              WHERE p.ID_PLAT = '$id'";
+
+        $conn = $db->getConnection();
+        $stmt = $db->requete($query);
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            return new Plats($row['ID_PLAT'], $row['NOM_PLAT'], true, $row['PRIX'], $row['TYPE_PLAT']);
+    }
+
+    public static function updatePlat($id, $nom, $prix) {
+        $db = new Database();
+        $conn = $db->getConnection();
+
+        $stmt = $conn->prepare("UPDATE PLAT SET NOM_PLAT = :nom, PRIX = :prix WHERE ID_PLAT = '$id'");
+
+        return $stmt->execute([
+            'nom' => $nom,
+            'prix' => $prix,
+            'id' => $id
+        ]);
+    }
+
+
+
 
 }

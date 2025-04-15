@@ -16,7 +16,7 @@
     (<?= htmlspecialchars($plat['TYPE_PLAT']['TYPE_PLAT']) ?>)
     - <?= number_format($plat['PRIX'], 2, ',', ' ') ?> €
 </span>
-	<button class="edit">Modifier</button>
+	<a href="../../controllers/administration/admin_ModifierCarte.php?id=<?= $plat['ID_PLAT'] ?>"><button class="edit">Modifier</button></a>
 	<button class="delete">Supprimer</button>
 </div>
 <?php endforeach; ?>

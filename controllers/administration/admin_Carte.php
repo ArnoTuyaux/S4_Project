@@ -2,7 +2,7 @@
 
 $type = $_GET['type'] ?? 'Entree';
 
-$response = file_get_contents("http://localhost/S4_Project_WebApp/api/get_menu.php?type=" . urlencode($type));
+$response = file_get_contents("http://localhost/Projet_S4/api/get_menu.php?type=" . urlencode($type));
 
 if ($response === false) {
     die("Erreur lors de l'appel API.");
