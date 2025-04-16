@@ -1,5 +1,6 @@
 <?php
 require_once('views/layouts/nav.inc.php');
+include('views/modales/reservationModal.php');
 
 $response = file_get_contents("http://localhost/Projet_S4/api/boissons_ticket_api.php");
 $boisson = json_decode($response, true);

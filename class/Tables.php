@@ -33,8 +33,10 @@ class Tables
         $db = new Database();
         $conn = $db->getConnection();
         $sql = "SELECT t.ID_TABLES, s.statut_table, t.id_secteur
-                FROM tables t
-                JOIN statut_Table s ON t.ID_STATUT_TABLE = s.ID_STATUT_TABLE";
+        FROM tables t
+        JOIN statut_Table s ON t.ID_STATUT_TABLE = s.ID_STATUT_TABLE
+        ORDER BY t.ID_TABLES ASC";
+
         $stmt = $db->requete($sql);
 
         $tables = [];

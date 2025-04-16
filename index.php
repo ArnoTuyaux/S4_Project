@@ -19,6 +19,9 @@ switch ($page) {
     case 'boisson':
         require_once('controllers/barmanBoisson.php');
         break;
+    case 'parametre':
+        require_once('controllers/administration/admin_Carte.php');
+        break;
     default:
         echo "<h1>Page non trouvée</h1>";
         break;
