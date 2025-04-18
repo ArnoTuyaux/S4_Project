@@ -80,7 +80,7 @@
 }
 
 .modal-content {
-    background: white;
+    background: #FFBF66;
     padding: 20px;
     border-radius: 10px;
     min-width: 300px;
@@ -95,4 +95,22 @@
     font-size: 24px;
     cursor: pointer;
 }
+
+.autre-reservations {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.autre-btn {
+    background-color: #e6934b;
+    color: white;
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    white-space: pre-line;
+}
+
 

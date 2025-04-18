@@ -46,4 +46,22 @@ class Tables
 
         return $tables;
     }
+
+    public static function setTablesReservees($listeIdTables) {
+        if (empty($listeIdTables)) return;
+
+        $db = new Database();
+        $conn = $db->getConnection();
+
+        // On transforme le tableau [1, 4, 5] en "(1,4,5)"
+        $placeholders = implode(',', array_map('intval', $listeIdTables));
+
+        $sql = "UPDATE tables 
+            SET ID_STATUT_TABLE = (
+                SELECT ID_STATUT_TABLE FROM statut_table WHERE statut_table = 'Reservee'
+            )
+            WHERE ID_TABLES IN ($placeholders)";
+
+        $conn->exec($sql);
+    }
 }

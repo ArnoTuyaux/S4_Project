@@ -4,7 +4,7 @@
         <span class="close" onclick="closeModal()">&times;</span>
 
         <h2>Réservation</h2>
-        <form method="post" action="controllers/reservationHandler.php">
+        <form method="post" action="controllers/reservationM.php">
             <input type="text" name="nom_client" placeholder="Nom" required><br>
             <input type="tel" name="telephone" placeholder="Téléphone" required><br>
             <input type="date" name="date" required><br>
